@@ -6,5 +6,13 @@
 	"test_route_with_args" : {
 		"path" : "/path/with/{args}",
 		"resolve" : "Test::WithArgs"
+	},
+	"another_route_with_args" : {
+		"path" : "/args/{again}/inthe/middle",
+		"resolve" : "Test::WithArgsTwo"
+	},
+	"two_args_route" : {
+		"path" : "/two/{argz}/in/{path}",
+		"resolve" : "Test::WithTwoArgs"
 	}
 }
