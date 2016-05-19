@@ -9,9 +9,11 @@ define('ROOT', dirname(__FILE__));
  */
 $APP_URL = $_SERVER['REQUEST_URI'];//$_GET['url'];
 
+
 //********************************************* TO DELETE
 header("Status: 200 OK", false, 200);//TODELETE
 /* echo 'SEPARATOR : ' . DS . "<br/>"; */
+echo 'PHP SELF : ' . $_SERVER['PHP_SELF'] . '<br/>';
 echo 'ROOT : ' . ROOT . "<br/>";
 echo 'URL : ' . $APP_URL . "<br/>";//TODELETE
 /* echo 'TEST : ' . dirname(__FILE__) . "<br/>"; */

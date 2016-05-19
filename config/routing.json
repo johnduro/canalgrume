@@ -1,18 +1,18 @@
 {
 	"test_route" : {
-		"path" : "/testpath/requested",
+		"path" : "/canalgrume/testpath/requested",
 		"resolve" : "Test::Index"
 	},
 	"test_route_with_args" : {
-		"path" : "/path/with/{args}",
+		"path" : "/canalgrume/path/with/%args%",
 		"resolve" : "Test::WithArgs"
 	},
 	"another_route_with_args" : {
-		"path" : "/args/{again}/inthe/middle",
+		"path" : "/canalgrume/args/%again%/inthe/middle",
 		"resolve" : "Test::WithArgsTwo"
 	},
 	"two_args_route" : {
-		"path" : "/two/{argz}/in/{path}",
+		"path" : "/canalgrume/two/%argz%/in/%path%",
 		"resolve" : "Test::WithTwoArgs"
 	}
 }
