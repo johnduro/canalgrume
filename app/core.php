@@ -62,7 +62,6 @@ function unregisterGlobals()
 /**
  * Handle request
  */
-
 function handleRequest()
 {
     /**
@@ -75,39 +74,19 @@ function handleRequest()
      */
     global $APP_ROUTES;
 
-    echo "HANDLE REQUEST <br/>";//TODELETE
+    /**
+     * App Object
+     * - Template
+     */
+    $app = new AppCore();
 
-    $requestHandler = new RequestHandler($APP_ROUTES, $APP_URL);
+    $requestHandler = new RequestHandler($APP_ROUTES, $APP_URL, $app);
     $requestHandler->treatRequest();
-    /*
-    $urlArray = array();
-    $urlArray = explode("/",$url);
-
-    $controller = $urlArray[0];
-    array_shift($urlArray);
-    $action = $urlArray[0];
-    array_shift($urlArray);
-    $queryString = $urlArray;
-
-    $controllerName = $controller;
-    $controller = ucwords($controller);
-    $model = rtrim($controller, 's');
-    $controller .= 'Controller';
-    $dispatch = new $controller($model,$controllerName,$action);
-
-    if ((int)method_exists($controller, $action))
-    {
-        call_user_func_array(array($dispatch,$action),$queryString);
-    }
-    else
-    {
-        // Error Generation Code Here
-    }
-    */
 }
 
-/** Autoload any classes that are required **/
-
+/**
+ * Autoload required classes
+ */
 function __autoload($className)
 {
     /* echo ROOT . DS . 'src' . DS . 'controllers' . DS . $className . 'Controller.php'; */
@@ -123,26 +102,10 @@ function __autoload($className)
     {
         //throw error here
     }
-
-    /* if (file_exists(ROOT . DS . 'library' . DS . strtolower($className) . '.class.php')) */
-    /* { */
-    /*     require_once(ROOT . DS . 'library' . DS . strtolower($className) . '.class.php'); */
-    /* } */
-    /* else if (file_exists(ROOT . DS . 'application' . DS . 'controllers' . DS . strtolower($className) . '.php')) */
-    /* { */
-    /*     require_once(ROOT . DS . 'application' . DS . 'controllers' . DS . strtolower($className) . '.php'); */
-    /* } */
-    /* else if (file_exists(ROOT . DS . 'application' . DS . 'models' . DS . strtolower($className) . '.php')) */
-    /* { */
-    /*     require_once(ROOT . DS . 'application' . DS . 'models' . DS . strtolower($className) . '.php'); */
-    /* } */
-    /* else */
-    /* { */
-    /*     /\* Error Generation Code Here *\/ */
-    /* } */
 }
-
 /* setReporting(); */ //affichage des erreurs
 /* removeMagicQuotes(); */ //deprecated ?
 /* unregisterGlobals(); */ //deprecated ?
+
+
 handleRequest();

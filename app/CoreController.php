@@ -2,10 +2,15 @@
 
 class CoreController
 {
-    protected $_arguments;
+    protected $app;
 
-    public function __construct($arguments)
+    public function __construct($app)
     {
-        $this->_arguments = $arguments;
+        $this->app = $app;
+    }
+
+    public function renderView($name, array $variables)
+    {
+        $this->app->template->renderView($name, $variables);
     }
 }
