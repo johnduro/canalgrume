@@ -1,0 +1,26 @@
+{
+	"layout" : {
+		"views" : [
+			"header",
+			"% body %",
+			"footer",
+			"% somethingAfter %"
+		],
+		"variables" : {
+			"title" : "myFirstTitle"
+		}
+	},
+	"args_two" : {
+		"extends" : "layout",
+		"views" : [
+			"body::argstwoView"
+		]
+	},
+	"two_args" : {
+		"extends" : "layout",
+		"views" : [
+			"body::twoargsView",
+			"somethingAfter::afterView"
+		]
+	}
+}

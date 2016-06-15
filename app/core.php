@@ -65,22 +65,34 @@ function unregisterGlobals()
 function handleRequest()
 {
     /**
+     * @var $APP_URL
      * Url of the request
      */
     global $APP_URL;
 
     /**
-     * Routes available
+     * @var $APP_ROUTES
+     * Routes defined by user
      */
     global $APP_ROUTES;
+
+    /**
+     * @var $APP_VIEWS
+     * Views defined by user
+     */
+    global $APP_VIEWS;
 
     /**
      * App Object
      * - Template
      */
-    $app = new AppCore();
+    $app = new AppCore($APP_URL, $APP_ROUTES, $APP_VIEWS);
 
-    $requestHandler = new RequestHandler($APP_ROUTES, $APP_URL, $app);
+    /* echo '<pre>'; */
+    /* var_dump($APP_VIEWS); */
+    /* echo '</pre>'; */
+
+    $requestHandler = new RequestHandler($app);
     $requestHandler->treatRequest();
 }
 

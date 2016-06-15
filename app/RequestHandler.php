@@ -7,10 +7,10 @@ class RequestHandler
 
     public $app;
 
-    public function __construct($routes, $url, $app)
+    public function __construct($app)
     {
-        $this->routes = $routes;
-        $this->url = $url;
+        $this->routes = $app->getRoutes();
+        $this->url = $app->getUrl();
         $this->app = $app;
     }
 
@@ -53,7 +53,9 @@ class RequestHandler
                 $route['arguments'] = $matches[1];
             }
             else
+            {
                 $route['arguments'] = null;
+            }
             $route['pattern'] = $this->transformRouteInPattern($route);
 
             $urlMatches = array();
@@ -66,7 +68,9 @@ class RequestHandler
                     foreach ($route['arguments'] as $argument)
                     {
                         if (isset($urlMatches[$idx]))
-                            $arguments[substr($argument, 1, -1)] = $urlMatches[$idx];
+                        {
+                            $arguments[trim(substr($argument, 1, -1))] = $urlMatches[$idx];
+                        }
                         $idx++;
                     }
                     $route['arguments'] = $arguments;
