@@ -22,5 +22,17 @@
 			"body::twoargsView",
 			"somethingAfter::afterView"
 		]
+	},
+	"root_path" : {
+		"extends" : "layout::body",
+		"views" : [
+			"rootPathView"
+		]
+	},
+	"testoneView" : {
+		"extends" : "layout::body",
+		"views" : [
+			"testoneView"
+		]
 	}
 }

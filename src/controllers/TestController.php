@@ -4,12 +4,14 @@ class TestController extends CoreController
 {
     public function IndexAction()
     {
-        echo '<br/>TEST :: INDEX ACTION<br/>';
+        $this->renderView('testoneView', [
+            'variable' => 'depuis controller Index',
+            'areg' => 'wut?',
+        ]);
     }
 
     public function WithArgsAction($args)
     {
-        echo '<br/>TEST :: WITHARGS ACTION<br/>';
         $this->app->template->renderView('testoneView', array(
             'variable' => 99,
             'areg' => $args
@@ -18,7 +20,6 @@ class TestController extends CoreController
 
     public function WithArgsTwoAction($again)
     {
-        echo '<br/>TEST :: WITHARGSTWO ACTION<br/>';
         $this->renderView('args_two', array(
             'again' => $again,
         ));
@@ -26,9 +27,6 @@ class TestController extends CoreController
 
     public function WithTwoArgsAction($argz, $path)
     {
-        echo '<br/>TEST :: WITHTWOARGS ACTION<br/>';
-        /* echo 'ARGZZZ : ' . $argz . '<br/>'; */
-        /* echo 'PATH : ' . $path. '<br/>'; */
         $this->renderView('two_args', array(
             'argz' => $argz,
             'path' => $path,

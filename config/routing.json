@@ -14,5 +14,9 @@
 	"two_args_route" : {
 		"path" : "/canalgrume/two/%argz%/in/%path%",
 		"resolve" : "Test::WithTwoArgs"
+	},
+	"root_path" : {
+		"path" : "canalgrume/",
+		"resolve" : "RootPath::Index"
 	}
 }

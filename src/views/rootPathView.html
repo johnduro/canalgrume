@@ -1,0 +1,11 @@
+<div>Hello world, root path here</div>
+
+<div>Let's make some links :</div>
+
+<a href="<?php $app->generateLink('test_route') ?>">test_route</a><br>
+
+<a href="<?php $app->generateLink('test_route_with_args', ['args' => 'yolomint']) ?>">test_route_with_args</a><br>
+
+<a href="<?php $app->generateLink('another_route_with_args', ['again' => 'manuelferre']) ?>">another_route_with_args</a><br>
+
+<a href="<?php $app->generateLink('two_args_route', ['argz' => 'firstarg', 'path' => 'secondarg']) ?>">two_args_route</a><br>

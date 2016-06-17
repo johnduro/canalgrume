@@ -5,9 +5,9 @@ class CoreTemplate
     private $_app;
     private $_views;
 
-    public function __construct($app)
+    public function __construct(AppCore $app)
     {
-        $this->_views = $app->getViews();
+        $this->_views = &$app->getViews();
 
         $this->_app = $app;
     }

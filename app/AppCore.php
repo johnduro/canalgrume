@@ -7,14 +7,16 @@ class AppCore
     private $_views;
 
     public $template;
+    public $router;
 
-    public function __construct($url, $routes, $views)
+    public function __construct($url, array $routes, array $views)
     {
         $this->_url = $url;
         $this->_routes = $routes;
         $this->_views = $views;
 
         $this->template = new CoreTemplate($this);
+        $this->router = new CoreRouter($this);
     }
 
     public function getRoutes()
@@ -30,5 +32,10 @@ class AppCore
     public function getViews()
     {
         return $this->_views;
+    }
+
+    public function generateLink($route, array $arguments = [])
+    {
+        $this->router->generateLink($route, $arguments);
     }
 }
